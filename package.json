@@ -1,0 +1,44 @@
+{
+  "name": "grunt-ensure-id",
+  "description": "Ensures that all specified html elements has id attribute.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/ezraroi/grunt-ensure-id",
+  "author": {
+    "name": "Roi Ezra",
+    "email": "ezraroi@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/ezraroi/grunt-ensure-id.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ezraroi/grunt-ensure-id/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/ezraroi/grunt-ensure-id/blob/master/LICENSE-MIT"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.10.33"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "^0.9.2",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-nodeunit": "^0.3.3",
+    "grunt": "~0.4.5"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.5"
+  },
+  "keywords": [
+    "id","grunt","validation"
+  ],
+  "dependencies": {
+    "htmlparser2": "^3.8.3"
+  }
+}
