@@ -40,7 +40,7 @@ grunt.initConfig({
 
 #### options.elements
 Type: `Array`
-Default value: `['button', 'a']`
+Default value: `['button', 'a', 'input', 'select]`
 
 Which HTML elements should have id attribute.
 
