@@ -16,11 +16,11 @@ module.exports = function(grunt) {
         /* jshint validthis: true */
 
         var options = this.options({
-            elements : ['button', 'a'],
+            elements : ['button', 'a', 'input', 'select'],
             attrs : ['ng-click', 'ng-submit']
         });
 
-        var currentFile, hasError = false;
+        var currentFile, hasError = false, currentLine, index;
         var parser = new htmlparser.Parser({
             onopentag: parseOpenTag
         }, {decodeEntities: true});
@@ -45,18 +45,24 @@ module.exports = function(grunt) {
         function parseFile(filepath) {
             grunt.log.debug('Checking file: ' + filepath);
             currentFile = filepath;
-            parser.parseComplete(grunt.file.read(filepath));
+            var lines = grunt.file.read(filepath);
+            index = 1;
+            lines.split('\n').forEach(function(line) {
+                currentLine = line.replace('\r', '');
+                parser.parseComplete(currentLine);
+                index++;
+            });
             grunt.log.debug('Finished file: ' + filepath);
         }
 
         function parseOpenTag(name, attribs){
             if (options.elements.indexOf(name) !== -1 && !attribs.hasOwnProperty('id')) {
-                grunt.log.warn('File: ' + currentFile + ' Tag: ' + name);
+                grunt.log.warn(currentFile + ' Line ' + index + ': (' + name + ') ' + currentLine);
                 hasError = true;
             }
             options.attrs.forEach(function(attribute) {
                 if (attribs.hasOwnProperty(attribute) && !attribs.hasOwnProperty('id')) {
-                    grunt.log.warn('File: ' + currentFile + ' Attribute: ' + attribute);
+                    grunt.log.warn(currentFile + ' Line ' + index + ': (' + name + ') ' + currentLine);
                     hasError = true;
                 }
             });

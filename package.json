@@ -1,7 +1,7 @@
 {
   "name": "grunt-ensure-id",
   "description": "Ensures that all specified html elements has id attribute.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "homepage": "https://github.com/ezraroi/grunt-ensure-id",
   "author": {
     "name": "Roi Ezra",
