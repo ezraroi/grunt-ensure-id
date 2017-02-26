@@ -31,8 +31,10 @@ module.exports = function(grunt) {
         // Configuration to be run (and then tested).
         ensure_id: {
             options: {
-                elements : ['button', 'a'],
-                attrs : ['ng-click']
+                check: 'id',
+                elements: ['button', 'a'],
+                attrs: ['ng-click', 'ng-submit'],
+                autofix: true
             },
             main: {
                 src: ['test/html/pass.html']
