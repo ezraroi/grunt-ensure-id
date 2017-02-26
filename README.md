@@ -64,9 +64,9 @@ Default value: `false`
 
 Add ID to all detected items in the following format:
 
-nameFile_%element%_%numberFile%_%uniqueId% 
+`nameFile_element_numberFile_uniqueId`
 
-Example (test-file.html): testFile_input_2_489
+Example (test-file.html): `testFile_input_2_489`
 
 ### Usage Examples
 
