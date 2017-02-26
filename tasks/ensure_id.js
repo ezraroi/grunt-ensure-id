@@ -22,7 +22,7 @@ module.exports = function (grunt) {
             check: ['ng-attr-id'],
             elements: ['button', 'a', 'input', 'select'],
             attrs: ['ng-click', 'ng-submit'],
-            autofix: true
+            autofix: false
         });
 
         var currentFile, hasError = false, currentLine, index, countFile = 0, uniqueId = 0;
