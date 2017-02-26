@@ -58,11 +58,15 @@ Default value: `['ng-click', 'ng-submit']`
 
 Which HTML elements which has the above attributes should have id attribute.
 
-#### options.check
+#### options.autofix
 Type: `boolean`
 Default value: `false`
 
-The attribute to be observed. Ex. 'id', 'ng-attr-id' or other id variants 
+Add ID to all detected items in the following format:
+
+nameFile_%element%_%numberFile%_%uniqueId% 
+
+Example (test-file.html): testFile_input_2_489
 
 ### Usage Examples
 
