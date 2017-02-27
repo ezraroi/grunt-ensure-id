@@ -26,8 +26,10 @@ In your project's Gruntfile, add a section named `ensure_id` to the data object 
 grunt.initConfig({
   ensure_id: {
     options: {
+      check: 'id',
       elements : ['button', 'a'],
-      attrs : ['ng-click']
+      attrs: ['ng-click', 'ng-submit'],
+      autofix: true
     },
     main: {
       src: ['test/fixtures/*']
@@ -37,6 +39,12 @@ grunt.initConfig({
 ```
 
 ### Options
+
+#### options.check
+Type: `string`
+Default value: `id`
+
+The attribute to be observed. Ex. 'id', 'ng-attr-id' or other id variants 
 
 #### options.elements
 Type: `Array`
@@ -49,6 +57,16 @@ Type: `Array`
 Default value: `['ng-click', 'ng-submit']`
 
 Which HTML elements which has the above attributes should have id attribute.
+
+#### options.autofix
+Type: `boolean`
+Default value: `false`
+
+Add ID to all detected items in the following format:
+
+`nameFile_element_numberFile_uniqueId`
+
+Example (test-file.html): `testFile_input_2_489`
 
 ### Usage Examples
 
@@ -73,8 +91,10 @@ In this example, custom options are used to do something else with whatever else
 grunt.initConfig({
   ensure_id: {
     options: {
+      check: 'id',
       elements : ['button', 'a'],
-      attrs : ['ng-click']
+      attrs: ['ng-click'],
+      autofix: true
     },
     files: {
       'dest/default_options': ['src/testing', 'src/123'],
