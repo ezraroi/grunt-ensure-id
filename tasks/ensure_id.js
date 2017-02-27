@@ -19,7 +19,7 @@ module.exports = function (grunt) {
         /* jshint validthis: true */
 
         var options = this.options({
-            check: ['ng-attr-id'],
+            check: 'ng-attr-id',
             elements: ['button', 'a', 'input', 'select'],
             attrs: ['ng-click', 'ng-submit'],
             autofix: false
@@ -77,6 +77,7 @@ module.exports = function (grunt) {
                         copyCurrentLine = copyCurrentLine.replace(/\//g, '\\/');
                         copyCurrentLine = copyCurrentLine.replace(/\(/g, '\\(');
                         copyCurrentLine = copyCurrentLine.replace(/\)/g, '\\)');
+                        copyCurrentLine = copyCurrentLine.replace(/\|/g, '\\|');
                         var regexString = new RegExp(copyCurrentLine);
 
                         switch (name) {
@@ -98,6 +99,10 @@ module.exports = function (grunt) {
 
                             case 'a':
                                 var newId = nameFile + "_link_" + countFile + "_" + uniqueId;
+                                break;
+
+                            case 'input':
+                                var newId = "{{'" + nameFile + "_link_' + " + nameFile + ".index + '_' \| uniqueId }}";
                                 break;
 
                             case 'iframe':
@@ -148,6 +153,7 @@ module.exports = function (grunt) {
                         copyCurrentLine = copyCurrentLine.replace(/\//g, '\\/');
                         copyCurrentLine = copyCurrentLine.replace(/\(/g, '\\(');
                         copyCurrentLine = copyCurrentLine.replace(/\)/g, '\\)');
+                        copyCurrentLine = copyCurrentLine.replace(/\|/g, '\\|');
                         var regexString = new RegExp(copyCurrentLine);
 
                         switch (attribute) {
